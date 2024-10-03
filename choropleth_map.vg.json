@@ -1,0 +1,43 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Total overweight and obese individuals per state in Australia (2022)",
+    "width": 1000,
+    "height": 500,
+    "data": {
+      "url": "https://raw.githubusercontent.com/hmac0023/FIT3179-DataVis2/refs/heads/main/output.json",
+      "format": {
+        "type": "topojson",
+        "feature": "STE_2021_AUST_GDA2020"
+      }
+    },
+    "transform": [
+      {
+        "lookup": "properties.STE_NAME21",  
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/hmac0023/FIT3179-DataVis2/refs/heads/main/TotalOverweightAndObesePerState.csv" 
+          },
+          "key": "State",  
+          "fields": ["Estimates"]
+        }
+      }
+    ],
+    "projection": {"type": "mercator"}, 
+    "mark": {
+      "type": "geoshape",
+      "stroke": "white"
+    },
+    "encoding": {
+      "color": {
+        "field": "Estimates",
+        "type": "quantitative",
+        "scale": {"scheme": "blues"},
+        "title": "Number of individuals"
+      },
+      "tooltip": [
+        {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"}, 
+        {"field": "Estimates", "type": "quantitative", "title": "Overweight & Obese individuals"}
+      ]
+    }
+  }
+  
