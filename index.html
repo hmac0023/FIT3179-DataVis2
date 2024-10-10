@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Data Visualization in Australia (2022)</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="all">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+</head>
+<body>
+
+    <h1>The rise of obesity in Australia</h1>
+
+    <div class="container">
+
+        <div class="chart">
+            <h2>Number of Overweight and Obese Individuals In Australia (2007-2022)</h2>
+            <div id="bubble_chart" class="chart-container"></div>
+        </div>
+
+        <div class="analysis">
+            <p>Over time, the number of overweight and obese individuals in Australia has shown a significant upward trend. 
+                This data highlights the growing public health challenge, with a steep rise over the past few decades.
+            </p>
+        </div>
+
+        <div class="chart">
+            <h2>Self-Assessed Health Distribution</h2>
+            <div id="donut_chart1" class="chart-container"></div>
+        </div>
+
+        <div class="analysis">
+            <p> In 2022, self-assessed health in Australia revealed that a significant portion of the population considers themselves to be in good or very good health. 
+                However, this does not necessarily align with actual obesity statistics, indicating potential gaps in self-awareness regarding health conditions.
+            </p>
+        </div>
+
+        <div class="chart">
+            <h2>Distribution of Body Mass Index (BMI)</h2>
+            <div id="bar_chart" class="chart-container"></div>
+        </div>
+
+        <div class="analysis">
+            <p> The BMI distribution chart shows a substantial number of individuals in the overweight and obese categories, emphasizing the need for targeted interventions in these groups. 
+                A relatively small percentage fall into the underweight category.
+            </p>
+        </div>
+
+        <div class="chart">
+            <h2>Physical Activity Distribution</h2>
+            <div id="donut_chart2" class="chart-container"></div>
+        </div>
+
+        <div class="analysis">
+            <p> Physical activity levels in Australia suggest that a considerable portion of the population does not meet the recommended physical activity guidelines. 
+                This correlates with the rising obesity rates and emphasizes the importance of promoting regular exercise.  
+            </p>
+        </div>
+
+        <div class="chart">
+            <h2>Overweight and Obese Individuals by State</h2>
+            <div id="choropleth_map" class="chart-container"></div>
+        </div>
+
+        <div class="analysis">
+            <p>There are significant geographic differences in the distribution of overweight and obese individuals across Australian states. 
+                This map highlights areas that may require more focused health initiatives and resources to combat obesity.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        vegaEmbed('#bubble_chart', 'bubble_chart.vg.json').then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#donut_chart1', 'donut_chart1.vg.json').then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#bar_chart', 'bar_chart.vg.json').then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#donut_chart2', 'donut_chart2.vg.json').then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#choropleth_map', 'choropleth_map.vg.json').then(function(result) {
+        }).catch(console.error);
+    </script>
+
+</body>
+</html>
