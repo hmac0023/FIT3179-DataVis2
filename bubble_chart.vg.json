@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/hmac0023/FIT3179-DataVis2/refs/heads/main/OverweightAndObesePeopleOverTime.csv"
+  },
+  "mark": "circle",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "nominal",
+      "title": "Year"
+    },
+    "y": {
+      "field": "Estimates",
+      "type": "quantitative",
+      "title": "Estimates (Number of People)"
+    },
+    "size": {
+      "field": "Growth Rate",
+      "type": "quantitative",
+      "scale": {"range": [100, 2000]},
+      "legend": {"title": "Growth Rate (%)"}
+    },
+    "tooltip": [
+      {"field": "Year", "type": "nominal"},
+      {"field": "Estimates", "type": "quantitative"},
+      {"field": "Growth Rate", "type": "quantitative"}
+    ]
+  },
+  "width": 400,
+  "height": 400,
+  "title": "Trend of Overweight and Obese People Over Time with Growth Rates"
+}
