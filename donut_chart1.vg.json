@@ -1,0 +1,29 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/hmac0023/FIT3179-DataVis2/refs/heads/main/SelfAssessedHealth.csv" 
+  },
+  "transform": [
+    {
+      "window": [{"op": "sum", "field": "Estimates", "as": "TotalEstimates"}], 
+      "frame": [null, null]
+    },
+    {
+      "calculate": "datum.Estimates / datum.TotalEstimates * 100", 
+      "as": "Percentage"
+    }
+  ],
+  "mark": {"type": "arc", "innerRadius": 70},
+  "encoding": {
+    "theta": {"field": "Estimates", "type": "quantitative"},
+    "color": {"field": "Self-Assessed Health Status", "type": "nominal"},
+    "tooltip": [
+      {"field": "Self-Assessed Health Status", "type": "nominal", "title": "Health Status"},
+      {"field": "Estimates", "type": "quantitative", "title": "Estimates"},
+      {"field": "Percentage", "type": "quantitative", "format": ".1f", "title": "Percentage"}
+    ]
+  },
+  "view": {"stroke": null}
+}
